@@ -51,7 +51,9 @@ export const LocateCepProvider = ({ children }: ILocationProps) => {
       await api
         .get(`${cepNumber}`)
         .then((response) => setCeps(response.data))
-        .catch((err) => toast.error("Ops! CEP não encontrado..."));
+        .catch((err) => {
+          toast.error("Ops! CEP não encontrado...");
+        });
     } else {
       toast.error("CEP inválido! São necessários 8 números");
     }
